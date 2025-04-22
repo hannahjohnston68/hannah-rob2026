@@ -603,20 +603,22 @@ a:hover {
     font-family: 'Cormorant Garamond', serif;
 }
 
-/* Where to Stay Section */
+/* Getting to the Venue Section */
 .where-to-stay {
-    background-color: var(--dark-green);
-    color: var(--cream);
+    background-color: var(--cream);
+    color: var(--dark-green);
     padding: 80px 0;
     text-align: center;
     width: 100%;
 }
 
 .where-to-stay h2 {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     margin-bottom: 50px;
     color: var(--dark-green);
-    font-family: 'Pinyon Script', cursive;
+    font-family: 'Cormorant Garamond', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .accommodations {
@@ -628,31 +630,65 @@ a:hover {
 }
 
 .accommodation {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 40px 30px;
-    border-radius: 5px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: left;
 }
 
 .accommodation h3 {
     font-size: 1.8rem;
     margin-bottom: 20px;
     font-weight: bold;
+    color: var(--dark-green);
+    display: flex;
+    align-items: center;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.accommodation h3::before {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(144, 169, 143, 0.2);
+    border-radius: 50%;
+    margin-right: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    flex-shrink: 0;
+}
+
+.accommodation:nth-child(1) h3::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2390a98f"><path d="M12 2C7.58 2 4 5.58 4 10c0 1.95.7 3.73 1.86 5.12L12 22l6.14-6.88C19.3 13.73 20 11.95 20 10c0-4.42-3.58-8-8-8zm0 11.5c-1.93 0-3.5-1.57-3.5-3.5S10.07 6.5 12 6.5s3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>');
+}
+
+.accommodation:nth-child(2) h3::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2390a98f"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>');
 }
 
 .accommodation p {
     margin-bottom: 15px;
     font-size: 1.1rem;
-    line-height: 1.5;
+    line-height: 1.6;
+    color: #333;
+}
+
+.accommodation p em {
+    color: #666;
+    font-style: italic;
+    font-size: 0.95rem;
 }
 
 .accommodation a {
-    color: var(--cream);
+    color: var(--dark-green);
     font-size: 1rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
     font-weight: bold;
     display: inline-block;
     margin-top: 10px;
+    text-decoration: underline;
 }
 
 /* Gifts Section */
