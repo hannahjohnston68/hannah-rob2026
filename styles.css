@@ -605,20 +605,25 @@ a:hover {
 
 /* Getting to the Venue Section */
 .where-to-stay {
-    background-color: var(--cream);
-    color: var(--dark-green);
-    padding: 80px 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/venue-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--cream);
+    padding: 100px 0;
     text-align: center;
     width: 100%;
+    position: relative;
 }
 
 .where-to-stay h2 {
     font-size: 3.5rem;
     margin-bottom: 50px;
-    color: var(--dark-green);
+    color: var(--cream);
     font-family: 'Cormorant Garamond', serif;
     text-transform: uppercase;
     letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .accommodations {
@@ -630,11 +635,19 @@ a:hover {
 }
 
 .accommodation {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.95);
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     text-align: left;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.accommodation:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 .accommodation h3 {
