@@ -605,7 +605,7 @@ a:hover {
 
 /* Getting to the Venue Section */
 .where-to-stay {
-    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('images/venue-background-final.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/venue-background-updated.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -649,7 +649,7 @@ a:hover {
 }
 
 .accommodation {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.92);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
