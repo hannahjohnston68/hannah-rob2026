@@ -605,11 +605,11 @@ a:hover {
 
 /* Getting to the Venue Section */
 .where-to-stay {
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/venue-background-updated.jpg');
+    background: url('images/Untitled design (1).png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    color: var(--cream);
+    color: var(--dark-green);
     padding: 100px 0;
     text-align: center;
     width: 100%;
@@ -619,11 +619,11 @@ a:hover {
 .where-to-stay h2 {
     font-size: 3.8rem;
     margin-bottom: 50px;
-    color: var(--cream);
+    color: var(--dark-green);
     font-family: 'Cormorant Garamond', serif;
     text-transform: uppercase;
     letter-spacing: 3px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: none;
     position: relative;
     display: inline-block;
     padding-bottom: 15px;
@@ -637,7 +637,7 @@ a:hover {
     transform: translateX(-50%);
     width: 100px;
     height: 2px;
-    background-color: var(--cream);
+    background-color: var(--dark-green);
 }
 
 .accommodations {
@@ -649,13 +649,13 @@ a:hover {
 }
 
 .accommodation {
-    background-color: rgba(255, 255, 255, 0.92);
+    background-color: rgba(255, 255, 255, 0.95);
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     text-align: left;
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -809,7 +809,7 @@ footer .signature {
     font-size: 3rem;
     margin-top: 20px;
     margin-bottom: 30px;
-    font-family: 'Pinyon Script', cursive;
+    font-family: 'Cormorant Garamond', serif;
 }
 
 .heart {
@@ -822,15 +822,26 @@ footer .signature {
     display: inline-block;
     cursor: pointer;
     position: relative;
-    transition: transform 0.3s ease, color 0.3s ease;
-    font-size: 1.8em;
-    color: var(--dark-green);
-    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+    transition: transform 0.3s ease;
+}
+
+.heart-svg {
+    fill: transparent;
+    stroke: var(--cream);
+    stroke-width: 1.5;
+    transition: fill 0.3s ease, stroke 0.3s ease, transform 0.3s ease;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
+    animation: heartbeat 2s infinite;
+    transform-origin: center;
 }
 
 .heart-video:hover {
-    transform: scale(1.5);
-    color: #ff4d4d;
+    transform: scale(1.2);
+}
+
+.heart-video:hover .heart-svg {
+    fill: #E8B4B8; /* Dusty pink color */
+    stroke: #E8B4B8;
 }
 
 .heart-link {
@@ -863,9 +874,9 @@ footer .signature {
 
 @keyframes heartbeat {
     0% { transform: scale(1); }
-    15% { transform: scale(1.3); }
+    15% { transform: scale(1.15); }
     30% { transform: scale(1); }
-    45% { transform: scale(1.3); }
+    45% { transform: scale(1.15); }
     60% { transform: scale(1); }
     100% { transform: scale(1); }
 }
