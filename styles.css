@@ -187,7 +187,8 @@ a:hover {
     align-items: center;
     justify-content: space-between;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 0;
+    margin-left: 50px;
     padding: 0 20px;
 }
 
@@ -279,7 +280,7 @@ a:hover {
 .special-day {
     background-image: url('images/special-day-bg-new.jpg');
     background-size: cover;
-    background-position: center 45%;
+    background-position: center;
     background-attachment: fixed;
     color: var(--cream);
     text-align: center;
@@ -331,7 +332,7 @@ a:hover {
     font-size: 2rem;
     margin-top: -40px;
     font-family: 'Cormorant Garamond', serif;
-    font-style: ;
+    font-style: normal;
 }
 
 /* The Day Section */
@@ -344,7 +345,7 @@ a:hover {
 
 .the-day h1 {
     font-size: 5rem;
-    margin-top: -20px; 
+    margin-top: -20px;
     color: var(--dark-green);
 }
 
@@ -388,32 +389,33 @@ a:hover {
 }
 
 .timeline-icon {
-    width: 80px;
-    height: 80px;
     margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--dark-green);
-    border-radius: 50%;
 }
 
-.timeline-icon i {
-    font-size: 2.5rem;
-    color: var(--cream);
+.timeline-icon img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.timeline-icon:hover img {
+    transform: scale(1.1);
 }
 
 .timeline-time {
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: 2rem;
     color: var(--dark-green);
-    text-transform: uppercase;
     margin-bottom: 8px;
+    margin-top: -20px;
     font-family: 'Cormorant Garamond', serif;
 }
 
 .timeline-text {
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: var(--dark-green);
     font-family: 'Pinyon Script', cursive;
 }
@@ -422,24 +424,34 @@ a:hover {
 .rsvp {
     background-color: var(--dark-green);
     color: var(--cream);
-    padding: 80px 0;
-    text-align: center;
+    padding: 10px 0;
+    text-align: left;
     position: relative;
     width: 100%;
 }
 
+.rsvp-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+}
+
 .rsvp-container {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 600px;
+    margin: 0;
+    margin-left: 50px;
     position: relative;
     z-index: 2;
 }
 
 .rsvp h2 {
-    font-size: 4.5rem;
-    margin-bottom: 30px;
+    font-size: 5rem;
+    margin-bottom: 0px;
     color: var(--cream);
-    font-family: 'Pinyon Script', cursive;
+    font-family: 'Cormorant Garamond', serif;
 }
 
 .rsvp p {
@@ -463,27 +475,41 @@ a:hover {
 
 .rsvp-button {
     display: inline-block;
-    background-color: #e75480; /* Pink color */
+    background-color: #d4919b; /* Pink color */
     color: white;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 1.5rem;
+    font-weight: 800;
     letter-spacing: 2px;
     padding: 15px 40px;
-    border-radius: 5px;
+    border-radius: 20px;
     margin-top: 25px;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
     border: none;
     cursor: pointer;
 }
 
 .rsvp-button:hover {
-    background-color: #d64a75; /* Slightly darker pink on hover */
+    background-color: #a25566; /* Slightly darker pink on hover */
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     text-decoration: none;
+}
+
+.rsvp-sketch {
+    margin-right: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+.rsvp-sketch img {
+    max-width: 350px;
+    height: auto;
+    object-fit: contain;
+    opacity: 1;
+    display: block;
 }
 
 .vertical-lines {
@@ -530,18 +556,18 @@ a:hover {
 
 /* Other Details Section */
 .other-details {
-    background-color: var(--dark-green);
-    color: var(--cream);
+    background-color: var(--cream);
     padding: 80px 0;
-    text-align: center;
+    text-align: right;
     width: 100%;
 }
 
 .other-details h2 {
-    font-size: 4.5rem;
-    color: var(--cream);
+    font-size: 5rem;
+    color: var(--dark-green);
     margin-bottom: 50px;
     font-family: 'Pinyon Script', cursive;
+    margin-right: 50px;
 }
 
 .details-grid {
@@ -549,17 +575,32 @@ a:hover {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 0;
+    margin-left: auto;
+    margin-right: 50px;
+    width: 90%;
+    grid-template-areas:
+        "dress plus weather"
+        "gifts food drinks"
+        ". . photography";
 }
 
 .detail-item h3 {
     font-size: 1.5rem;
-    color: var(--cream);
+    color: var(--dark-green);
     margin-bottom: 15px;
     letter-spacing: 1px;
     font-weight: bold;
     font-family: 'Cormorant Garamond', serif;
     text-transform: uppercase;
+    text-align: right;
+}
+
+.detail-item p {
+    text-align: right;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-family: 'Cormorant Garamond', serif;
 }
 
 /* Where to Stay Section */
@@ -574,7 +615,7 @@ a:hover {
 .where-to-stay h2 {
     font-size: 4.5rem;
     margin-bottom: 50px;
-    color: var(--cream);
+    color: var(--dark-green);
     font-family: 'Pinyon Script', cursive;
 }
 
@@ -870,6 +911,19 @@ footer .signature {
         font-size: 1.2rem;
     }
 
+    .rsvp-content-wrapper {
+        flex-direction: column;
+    }
+
+    .rsvp-sketch {
+        margin-right: 0;
+        margin-top: 30px;
+    }
+
+    .rsvp-sketch img {
+        max-width: 300px;
+    }
+
     .rsvp-button {
         padding: 12px 30px;
         font-size: 1rem;
@@ -888,6 +942,24 @@ footer .signature {
     .details-grid, .accommodations {
         grid-template-columns: 1fr;
         gap: 30px;
+        margin-right: 20px;
+        width: 90%;
+        grid-template-areas:
+            "dress"
+            "plus"
+            "weather"
+            "gifts"
+            "food"
+            "drinks"
+            "photography";
+    }
+
+    .other-details h2 {
+        margin-right: 20px;
+    }
+
+    .detail-item h3, .detail-item p {
+        text-align: right;
     }
 
     .gifts-content {
