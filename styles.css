@@ -605,7 +605,7 @@ a:hover {
 
 /* Getting to the Venue Section */
 .where-to-stay {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/venue-background-new.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('images/venue-background-final.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -617,13 +617,27 @@ a:hover {
 }
 
 .where-to-stay h2 {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     margin-bottom: 50px;
     color: var(--cream);
     font-family: 'Cormorant Garamond', serif;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.where-to-stay h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background-color: var(--cream);
 }
 
 .accommodations {
@@ -635,7 +649,7 @@ a:hover {
 }
 
 .accommodation {
-    background-color: rgba(255, 255, 255, 0.92);
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -654,8 +668,8 @@ a:hover {
     left: 0;
     width: 100%;
     height: 5px;
-    background-color: var(--dark-green);
-    opacity: 0.8;
+    background: linear-gradient(to right, var(--dark-green), rgba(144, 169, 143, 0.5));
+    opacity: 0.9;
 }
 
 .accommodation:hover {
@@ -796,24 +810,6 @@ footer .signature {
     margin-top: 20px;
     margin-bottom: 30px;
     font-family: 'Pinyon Script', cursive;
-}
-
-.footer-credit {
-    margin-top: 30px;
-    font-size: 0.9rem;
-    opacity: 0.8;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    padding-top: 15px;
-}
-
-.footer-credit a {
-    color: var(--cream);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.footer-credit a:hover {
-    text-decoration: underline;
 }
 
 .heart {
