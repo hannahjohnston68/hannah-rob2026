@@ -424,27 +424,30 @@ a:hover {
 .rsvp {
     background-color: var(--dark-green);
     color: var(--cream);
-    padding: 10px 0;
+    padding: 60px 0;
     text-align: left;
     position: relative;
     width: 100%;
+    overflow: hidden; /* To contain the vertical lines */
 }
 
 .rsvp-content-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     position: relative;
     z-index: 2;
     max-width: 1200px;
+    margin: 0 auto;
 }
 
 .rsvp-container {
-    max-width: 600px;
+    width: 45%;
     margin: 0;
     margin-left: 50px;
     position: relative;
     z-index: 2;
+    text-align: left;
 }
 
 .rsvp h2 {
@@ -475,7 +478,7 @@ a:hover {
 
 .rsvp-button {
     display: inline-block;
-    background-color: #d4919b; /* Pink color */
+    background-color: #d3838f; /* Pink color */
     color: white;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.5rem;
@@ -498,31 +501,23 @@ a:hover {
     text-decoration: none;
 }
 
-.rsvp-sketch {
-    margin-right: 50px;
-    position: relative;
-    z-index: 2;
-}
-
-.rsvp-sketch img {
-    max-width: 350px;
-    height: auto;
-    object-fit: contain;
-    opacity: 1;
-    display: block;
-}
-
-.vertical-lines {
+/* Vertical cream lines for RSVP section */
+.vertical-cream-lines {
     position: absolute;
     top: 0;
     right: 0;
-    width: 300px;
+    width: 45%;
     height: 100%;
-    background-image: url('images/distillery-bg.png');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.15;
+    display: flex;
+    justify-content: space-evenly;
     z-index: 1;
+}
+
+.vertical-cream-line {
+    width: 20px;
+    height: 100%;
+    background-color: var(--cream);
+    opacity: 1;
 }
 
 /* Our Story Section */
@@ -619,26 +614,20 @@ a:hover {
 .where-to-stay h2 {
     font-size: 3.8rem;
     margin-bottom: 50px;
-    color: var(--dark-green);
+    color: var(--cream);
     font-family: 'Cormorant Garamond', serif;
     text-transform: uppercase;
     letter-spacing: 3px;
-    text-shadow: none;
     position: relative;
     display: inline-block;
-    padding-bottom: 15px;
+    padding: 15px 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25), 0 0 10px rgba(0, 0, 0, 0.6);
+    background-color: var(--dark-green)(0, 0, 0, 0.4);
+    border-radius: 5px;
+    font-weight: 600;
 }
 
-.where-to-stay h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 2px;
-    background-color: var(--dark-green);
-}
+/* Removed underline from Getting to the Venue heading */
 
 .accommodations {
     display: grid;
@@ -649,39 +638,24 @@ a:hover {
 }
 
 .accommodation {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: var(--dark-green);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     text-align: left;
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
-}
-
-.accommodation::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(to right, var(--dark-green), rgba(144, 169, 143, 0.5));
     opacity: 0.9;
 }
 
-.accommodation:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
 
 .accommodation h3 {
     font-size: 1.8rem;
     margin-bottom: 20px;
-    font-weight: bold;
-    color: var(--dark-green);
+    color: var(--cream);
     display: flex;
     align-items: center;
     font-family: 'Cormorant Garamond', serif;
@@ -692,7 +666,7 @@ a:hover {
     display: inline-block;
     width: 40px;
     height: 40px;
-    background-color: rgba(144, 169, 143, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
     border-radius: 50%;
     margin-right: 15px;
     background-position: center;
@@ -702,19 +676,99 @@ a:hover {
 }
 
 .accommodation:nth-child(1) h3::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2390a98f"><path d="M12 2C7.58 2 4 5.58 4 10c0 1.95.7 3.73 1.86 5.12L12 22l6.14-6.88C19.3 13.73 20 11.95 20 10c0-4.42-3.58-8-8-8zm0 11.5c-1.93 0-3.5-1.57-3.5-3.5S10.07 6.5 12 6.5s3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23f5f5dc"><path d="M12 2C7.58 2 4 5.58 4 10c0 1.95.7 3.73 1.86 5.12L12 22l6.14-6.88C19.3 13.73 20 11.95 20 10c0-4.42-3.58-8-8-8zm0 11.5c-1.93 0-3.5-1.57-3.5-3.5S10.07 6.5 12 6.5s3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>');
 }
 
 .accommodation:nth-child(2) h3::before {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2390a98f"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23f5f5dc"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>');
 }
 
 .accommodation p {
     margin-bottom: 15px;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     line-height: 1.6;
-    color: #333;
+    color: var(--cream);
 }
+
+/* Vertical line styling for transit directions */
+.accommodation p strong {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 1.4rem;
+}
+
+.accommodation {
+    position: relative;
+}
+
+/* Map button styling */
+.map-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 30px;
+}
+
+.map-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--cream);
+    color: var(--dark-green);
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.map-button:hover {
+    background-color: var(--dark-green);
+    color: var(--cream);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+}
+
+.map-button i {
+    margin-left: 8px;
+    color: #E8B4B8;
+}
+
+/* Styling for the transit information with vertical line */
+.transit-info {
+    display: flex;
+    position: relative;
+    margin-top: 5px;
+}
+
+.vertical-line {
+    width: 3px;
+    background-color: var(--cream);
+    opacity: 0.7;
+    margin-right: 17px;
+    margin-left: 0;
+    min-height: 100%;
+}
+
+.transit-content {
+    flex: 1;
+}
+
+.transit-content p {
+    padding-left: 0 !important;
+    margin-bottom: 4px;
+    line-height: 1.15;
+}
+
+.transit-content p strong {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+/* No longer needed as we're using the vertical line structure */
 
 .accommodation p em {
     color: #666;
@@ -791,8 +845,8 @@ footer {
     background-color: var(--dark-green);
     color: var(--cream);
     text-align: center;
-    padding: 40px 0;
-    font-size: 1.1rem;
+    padding: 25px 0;
+    font-size: 1rem;
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -800,21 +854,24 @@ footer {
 
 footer p {
     margin-bottom: 10px;
-    line-height: 1.6;
-    font-size: 1.4rem;
+    line-height: 1.5;
+    font-size: 1.2rem;
     font-family: 'Cormorant Garamond', serif;
 }
 
 footer .signature {
-    font-size: 3rem;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    font-size: 1.75rem;
+    margin-top: 0;
+    margin-bottom: 0px;
     font-family: 'Cormorant Garamond', serif;
+    opacity: 0.5;
 }
 
 .heart {
     display: inline-block;
     transform-origin: center;
+    color: #E8B4B8;
+
 }
 
 .heart-video {
@@ -824,32 +881,83 @@ footer .signature {
     transition: transform 0.3s ease;
 }
 
-.heart-svg {
-    fill: transparent;
-    stroke: var(--dark-green);
-    stroke-width: 2;
-    transition: fill 0.3s ease, stroke 0.3s ease, transform 0.3s ease;
-    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
-    transform-origin: center;
+.video-container {
+    margin: 15px 0;
+    text-align: center;
+    width: 100%;
 }
 
-.heart-video:hover {
-    transform: scale(1.2);
+.video-link {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--cream);
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 0.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
 }
 
-.heart-video:hover .heart-svg {
-    fill: #E8B4B8; /* Dusty pink color */
-    stroke: #E8B4B8;
-    stroke-width: 1.5;
-    filter: drop-shadow(0 0 5px rgba(232, 180, 184, 0.7));
+.video-link:hover {
+    color: #E8B4B8;
+    transform: scale(1.1);
+}
+
+.heart-icon {
+    display: inline-block;
+    font-size: 1.1rem;
+    line-height: 1;
+    position: relative;
+    top: -10px;
+}
+
+/* Tooltip styles */
+.tooltip {
+    position: relative;
+    opacity: 0.9;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #E8B4B8;
+    color: rgb(70, 70, 70);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    pointer-events: none;
+    margin-bottom: 5px;
+    font-family: sans-serif;
+    font-weight: normal;
+    z-index: 1000;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
 }
 
 .heart-link {
-    margin-top: 15px;
-    margin-bottom: 25px;
-    font-size: 1.5rem;
-    padding: 10px;
+    color: var(--cream);
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    padding: 8px;
     display: inline-block;
+    border-radius: 50px;
+    padding: 5px 15px;
 }
 
 .confetti-container {
@@ -867,7 +975,7 @@ footer .signature {
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: #ff0000;
+    background-color: #E8B4B8;
     opacity: 1;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     z-index: 10000;
@@ -965,8 +1073,13 @@ footer .signature {
         font-size: 3.8rem;
     }
 
-    .special-day h2, .gifts h2, .where-to-stay h2, .rsvp h2 {
+    .special-day h2, .gifts h2, .rsvp h2 {
         font-size: 4rem;
+    }
+
+    .where-to-stay h2 {
+        font-size: 3.5rem;
+        padding: 12px 25px;
     }
 
     .special-day p, .gifts p, .rsvp p {
@@ -974,16 +1087,7 @@ footer .signature {
     }
 
     .rsvp-content-wrapper {
-        flex-direction: column;
-    }
-
-    .rsvp-sketch {
-        margin-right: 0;
-        margin-top: 30px;
-    }
-
-    .rsvp-sketch img {
-        max-width: 300px;
+        padding: 0 20px;
     }
 
     .rsvp-button {
@@ -1029,7 +1133,7 @@ footer .signature {
     }
 
     .vertical-lines {
-        width: 200px;
+        width: 800px;
     }
 }
 
@@ -1095,8 +1199,14 @@ footer .signature {
         line-height: 1.6;
     }
 
-    .special-day h2, .gifts h2, .where-to-stay h2, .rsvp h2 {
+    .special-day h2, .gifts h2, .rsvp h2 {
         font-size: 3rem;
+    }
+
+    .where-to-stay h2 {
+        font-size: 2.8rem;
+        padding: 10px 20px;
+        max-width: 90%;
     }
 
     .special-day p, .gifts p, .rsvp p {

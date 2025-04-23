@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Get the heart element
-    const heartLink = document.querySelector('.heart-link a');
+    const heartLink = document.querySelector('.video-link');
 
     if (!heartLink) return;
 
@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to create a single confetti element
     function createConfettiElement(x, y) {
         const colors = [
-            '#ff0000', '#ff69b4', '#ff1493',
-            '#ff7f50', '#ff4500', '#ffa500',
-            '#425440', '#D4C19C'
+            '#ff69b4', '#ff1493', '#E8B4B8',
+            '#ffb6c1', '#ffc0cb', '#db7093',
+            '#f48fb1', '#f8bbd0'
         ];
 
         const element = document.createElement('div');
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const heartCenterY = heartRect.top + heartRect.height / 2;
 
         // Create multiple confetti pieces
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 80; i++) {
             const confetti = createConfettiElement(heartCenterX, heartCenterY);
             confettiContainer.appendChild(confetti);
             animateConfetti(confetti, heartCenterX, heartCenterY);
