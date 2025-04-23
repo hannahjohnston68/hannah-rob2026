@@ -505,24 +505,17 @@ a:hover {
 }
 
 .rsvp-sketch img {
-    max-width: 350px;
+    max-width: 400px;
     height: auto;
     object-fit: contain;
     opacity: 1;
     display: block;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .vertical-lines {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 100%;
-    background-image: url('images/distillery-bg.png');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.15;
-    z-index: 1;
+    display: none;
 }
 
 /* Our Story Section */
