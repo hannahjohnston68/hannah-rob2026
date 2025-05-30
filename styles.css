@@ -181,6 +181,9 @@ a:hover {
 .main-nav .nav-link {
     color: var(--cream);
     transition: color 0.3s;
+    text-decoration: none;
+    border: none;
+    position: relative;
 }
 
 .main-nav.scrolled .nav-link {
