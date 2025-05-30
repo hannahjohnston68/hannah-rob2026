@@ -1,4 +1,4 @@
-// Smooth scrolling for navigation
+// Smooth scrolling and navigation functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Add smooth scrolling to all links
     const links = document.querySelectorAll('a[href^="#"]');
@@ -45,3 +45,56 @@ document.addEventListener('DOMContentLoaded', function() {
     // Run on scroll
     window.addEventListener('scroll', animateOnScroll);
 });
+
+// Handle navigation bar scroll effect
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('.main-nav');
+    if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
+
+// Handle mobile menu
+const mobileMenuButton = document.querySelector('.mobile-menu-button');
+const mobileMenu = document.querySelector('.mobile-menu');
+const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+mobileMenuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+// Close mobile menu when clicking a link
+mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+    });
+});
+
+// Handle active navigation links
+const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('section[id]');
+
+function setActiveLink() {
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+            link.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', setActiveLink);
+window.addEventListener('load', setActiveLink);
