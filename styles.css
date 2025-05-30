@@ -1282,3 +1282,54 @@ footer .footer-date {
         opacity: 0.1;
     }
 }
+
+.pinyon-script {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 2.2rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--dark-green);
+    margin-right: 40px;
+}
+
+.venue-link {
+    color: var(--dark-green);
+    text-decoration: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: transform 0.25s cubic-bezier(.4,0,.2,1), color 0.25s;
+    display: inline-block;
+    transform: none;
+    position: relative;
+}
+
+.venue-link::after {
+    content: '\f35d'; /* Font Awesome external-link-alt icon */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #a25566;
+    opacity: 0;
+    margin-left: 8px;
+    pointer-events: none;
+    position: absolute;
+    right: -28px;
+    top: 50%;
+    transform: translateY(-50%) translateX(8px);
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.venue-link:hover::after,
+.venue-link:focus::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+.venue-link:hover,
+.venue-link:focus {
+    transform: scale(1.08) rotate(-2deg);
+    color: #a25566;
+    text-decoration: none;
+}
