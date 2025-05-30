@@ -84,7 +84,7 @@ a {
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .btn {
@@ -111,13 +111,15 @@ a:hover {
     top: 0;
     left: 0;
     width: 100%;
-    text-align: right;
     z-index: 9999;
     padding: 1rem 0;
     font-family: 'Montserrat', sans-serif;
-    background-color: #E8B4B8 !important; /* Force pink background */
-    opacity: 1; /* Ensure full opacity */
-    background: #E8B4B8; /* Fallback */
+    background: transparent;
+}
+
+.main-nav.scrolled {
+    background: transparent;
+    padding: 0.5rem 0;
 }
 
 .nav-container {
@@ -211,9 +213,6 @@ a:hover {
 .main-nav.scrolled .menu-icon::after {
     background-color: var(--cream);
 }
-
- 
-
 
 /* Hero Section */
 .hero {
