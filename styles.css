@@ -84,7 +84,7 @@ a {
 }
 
 a:hover {
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .btn {
@@ -111,14 +111,17 @@ a:hover {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 9999;
+    z-index: 1000;
+    background: transparent;
+    transition: background 0.3s, box-shadow 0.3s;
+    box-shadow: none;
     padding: 1rem 0;
     font-family: 'Montserrat', sans-serif;
-    background: transparent;
 }
 
 .main-nav.scrolled {
-    background: transparent;
+    background: rgba(252,245,234,0.7); /* var(--cream) with 70% opacity */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     padding: 0.5rem 0;
 }
 
@@ -155,21 +158,33 @@ a:hover {
     left: 0;
     width: 100%;
     height: 1px;
-    background-color: var(--cream);
+    background-color: currentColor !important;
     transform: scaleX(0);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1), background-color 0s;
+    pointer-events: none;
+    will-change: transform, background-color;
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
     transform: scaleX(1);
+}
+
+.nav-link.active:hover::after {
+    /* No extra effect, prevents double underline */
 }
 
 .nav-link.active {
     color: var(--cream);
 }
 
-.nav-link.active::after {
-    transform: scaleX(1);
+.main-nav .nav-link {
+    color: var(--cream);
+    transition: color 0.3s;
+}
+
+.main-nav.scrolled .nav-link {
+    color: #222;
 }
 
 /* Mobile Menu Button */
@@ -531,9 +546,14 @@ a:hover {
 }
 
 .timeline-text {
-    font-size: 2rem;
+    font-size: 1.2rem;
     color: var(--dark-green);
-    font-family: 'Pinyon Script', cursive;
+    font-family: 'Playfair Display', serif;
+    opacity: 1;
+    position: relative;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
 }
 
 /* RSVP Section */
@@ -900,65 +920,80 @@ footer {
     background-color: var(--dark-green);
     color: var(--cream);
     text-align: center;
-    padding: 40px 0;
-    font-size: 1.1rem;
+    padding: 5px 0;
+    font-size: 0.9rem;
     width: 100%;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    z-index: 1;
+}
+
+footer .container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 70px;
 }
 
 footer p {
-    margin-bottom: 10px;
-    line-height: 1.6;
-    font-size: 1.4rem;
+    margin-bottom: 0;
+    line-height: 1;
+    font-size: 0.9rem;
     font-family: 'Cormorant Garamond', serif;
+    color: var(--cream);
+    opacity: 1;
 }
 
 footer .signature {
-    font-size: 3rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
     margin-top: 20px;
-    margin-bottom: 30px;
-    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 8px;
+    color: var(--cream);
+    opacity: 1;
 }
 
-.heart {
-    display: inline-block;
-    transform-origin: center;
-}
-
-.heart-video {
-    display: inline-block;
-    cursor: pointer;
-    position: relative;
-    transition: transform 0.3s ease;
-}
-
-.heart-svg {
-    fill: transparent;
-    stroke: var(--dark-green);
-    stroke-width: 2;
-    transition: fill 0.3s ease, stroke 0.3s ease, transform 0.3s ease;
-    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
-    transform-origin: center;
-}
-
-.heart-video:hover {
-    transform: scale(1.2);
-}
-
-.heart-video:hover .heart-svg {
-    fill: #E8B4B8; /* Dusty pink color */
-    stroke: #E8B4B8;
-    stroke-width: 1.5;
-    filter: drop-shadow(0 0 5px rgba(232, 180, 184, 0.7));
+footer .footer-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 12px;
+    margin-top: 0;
+    opacity: 1;
 }
 
 .heart-link {
-    margin-top: 15px;
-    margin-bottom: 25px;
-    font-size: 1.5rem;
-    padding: 10px;
-    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+}
+
+.heart-svg {
+    fill: none;
+    stroke: var(--cream);
+    stroke-width: 2;
+    width: 18px;
+    height: 18px;
+    display: block;
+    margin: 0 auto;
+    filter: none;
+    transition: stroke 0.3s;
+}
+
+.heart-video:hover .heart-svg {
+    stroke: #E8B4B8;
 }
 
 .confetti-container {
