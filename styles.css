@@ -37,8 +37,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-weight: 500;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-weight: 300 !important;
+}
+
+.main-nav, .nav-link {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-weight: 300 !important;
+    font-size: 1.25rem !important;
 }
 
 .container {
@@ -73,7 +84,6 @@ h2.visible, h3.visible, h4.visible, p.visible {
 }
 
 .signature {
-    font-family: 'Allura', cursive;
     font-size: 2.5rem;
     margin-top: 20px;
 }
@@ -111,12 +121,90 @@ a:hover {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 2000;
     background: transparent;
-    transition: background 0.3s, box-shadow 0.3s;
     box-shadow: none;
-    padding: 1rem 0;
-    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+    height: 15px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+/* Default navbar styling - dark text */
+.nav-link {
+    color: var(--dark-green);
+}
+
+/* Homepage navbar styling - light text */
+body:not(.our-story-page) .nav-link {
+    color: var(--cream);
+}
+
+/* FAQ page navbar styling - light text on dark background */
+body.faq-page .nav-link {
+    color: var(--cream);
+}
+
+body.faq-page .rsvp-link a {
+    color: white !important;
+    background: transparent !important;
+    border: 1px solid white !important;
+}
+
+body.faq-page .home-icon {
+    justify-self: start;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body.faq-page .home-icon-img {
+    /* Inherit global size exactly */
+    width: inherit !important;
+    height: inherit !important;
+    opacity: 1;
+    filter: none;
+    border: none !important;
+    outline: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: top;
+}
+
+body.faq-page .home-icon a {
+    border: none !important;
+    outline: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block;
+}
+
+body.faq-page .home-icon.nav-link {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* RSVP button styling */
+.rsvp-link a {
+    color: white !important;
+    background: transparent !important;
+    border: 1px solid white !important;
+    padding: 0.4em 1em !important;
+    border-radius: 0 !important;
+    transition: all 0.3s ease;
+}
+
+.rsvp-link a:hover {
+    background: transparent !important;
+    color: white !important;
+}
+
+.home-icon-img {
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+    filter: none;
 }
 
 .main-nav.scrolled {
@@ -128,25 +216,74 @@ a:hover {
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 !important;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    height: 60px;
+    height: 32px;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+.home-icon {
+    justify-self: start;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.home-icon::after {
+    display: none !important;
+}
+
+.home-icon-img {
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+    filter: none;
+    border: none !important;
+    outline: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: top;
+}
+
+.home-icon a {
+    border: none !important;
+    outline: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block;
+}
+
+.home-icon.nav-link {
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 .nav-links {
     display: flex;
     gap: 2rem;
+    justify-content: center;
+    justify-self: center;
+}
+
+.rsvp-link {
+    justify-self: end;
+    margin-right: 0.5rem;
+}
+
+
+.rsvp-link a:hover {
+    color: var(--dark-green) !important;
 }
 
 .nav-link {
-    color: var(--cream);
+    color: var(--dark-green);
     text-decoration: none;
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    padding: 0.5rem 0.75rem;
+    padding: 0.25rem 0.5rem;
     position: relative;
     transition: all 0.3s ease;
 }
@@ -175,11 +312,12 @@ a:hover {
 }
 
 .nav-link.active {
-    color: var(--cream);
+    color: var(--dark-green);
+    font-weight: 500;
 }
 
 .main-nav .nav-link {
-    color: var(--cream);
+    color: var(--dark-green);
     transition: color 0.3s;
     text-decoration: none;
     border: none;
@@ -187,7 +325,13 @@ a:hover {
 }
 
 .main-nav.scrolled .nav-link {
-    color: #222;
+    color: var(--dark-green);
+}
+
+/* Add persistent underline for Our Story nav link when on our-story page */
+.our-story-page .nav-link[href="our-story.html"]::after {
+    transform: scaleX(1);
+    opacity: 1;
 }
 
 /* Mobile Menu Button */
@@ -281,13 +425,9 @@ a:hover {
     opacity: 1;
     transform: translateY(0);
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
 }
 
 .hero .and {
-    font-family: 'Playfair Display', serif !important;
-    font-weight: 400;
     font-size: 5rem;
     text-transform: lowercase;
     line-height: 1;
@@ -302,7 +442,6 @@ a:hover {
     letter-spacing: 8px;
     margin-top: 30px;
     text-transform: uppercase;
-    font-family: 'Cormorant Garamond', serif;
     opacity: 1;
     transform: translateY(0);
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
@@ -327,9 +466,17 @@ a:hover {
 }
 
 .photo-frame-wrapper {
+    height: 100%;
     width: 45%;
     position: relative;
-    padding: 20px;
+    padding: 0;
+}
+
+.photo-frame-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .photo-frame {
@@ -387,7 +534,6 @@ a:hover {
     color: var(--dark-green);
     margin-bottom: -5px;
     line-height: 1;
-    font-family: 'Playfair Display', serif;
     font-weight: 500;
     white-space: nowrap;
 }
@@ -405,7 +551,6 @@ a:hover {
     letter-spacing: 3px;
     color: var(--dark-green);
     text-transform: uppercase;
-    font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
     margin-top: -40px;
 }
@@ -438,7 +583,6 @@ a:hover {
     font-size: 5rem;
     margin-bottom: 1px;
     color: var(--cream);
-    font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     position: relative;
     z-index: 2;
@@ -450,7 +594,6 @@ a:hover {
     font-size: 1.4rem;
     line-height: 1.7;
     letter-spacing: 1px;
-    font-family: 'Cormorant Garamond', serif;
     position: relative;
     z-index: 2;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -465,7 +608,6 @@ a:hover {
 .special-day p.signature-name {
     font-size: 2rem;
     margin-top: -40px;
-    font-family: 'Cormorant Garamond', serif;
     font-style: normal;
 }
 
@@ -545,13 +687,11 @@ a:hover {
     color: var(--dark-green);
     margin-bottom: 8px;
     margin-top: -20px;
-    font-family: 'Cormorant Garamond', serif;
 }
 
 .timeline-text {
     font-size: 1.2rem;
     color: var(--dark-green);
-    font-family: 'Playfair Display', serif;
     opacity: 1;
     position: relative;
     bottom: 0;
@@ -590,14 +730,12 @@ a:hover {
     font-size: 5rem;
     margin-bottom: 0px;
     color: var(--cream);
-    font-family: 'Cormorant Garamond', serif;
 }
 
 .rsvp p {
     margin-bottom: 20px;
     font-size: 1.5rem;
     line-height: 1.6;
-    font-family: 'Cormorant Garamond', serif;
 }
 
 .rsvp ul {
@@ -612,29 +750,24 @@ a:hover {
     text-decoration: none;
 }
 
-.rsvp-button {
-    display: inline-block;
-    background-color: #d4919b; /* Pink color */
-    color: white;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    padding: 15px 40px;
-    border-radius: 20px;
-    margin-top: 25px;
+.rsvp-button, .rsvp-link a {
+    color: var(--cream) !important;
+    border: 2px solid var(--cream) !important;
+    padding: 0.5em 1.2em !important;
+    font-size: 1.25rem !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    letter-spacing: 0.15em !important;
     transition: all 0.3s ease;
+    box-shadow: none !important;
     text-transform: uppercase;
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-    border: none;
-    cursor: pointer;
+    text-align: center;
+    display: inline-block;
 }
 
-.rsvp-button:hover {
-    background-color: #a25566; /* Slightly darker pink on hover */
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    text-decoration: none;
+.rsvp-button:hover, .rsvp-link a:hover {
+    background: transparent !important;
+    color: var(--dark-green) !important;
+    text-decoration: none !important;
 }
 
 .rsvp-sketch {
@@ -649,7 +782,7 @@ a:hover {
     object-fit: contain;
     opacity: 1;
     display: block;
-    border-radius: 10px;
+    border-radius: 0 !important;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -657,7 +790,206 @@ a:hover {
     display: none;
 }
 
-/* Our Story Section */
+/* Special RSVP styling for our-story page */
+.our-story-page .rsvp-link a,
+.our-story-page .rsvp-button {
+    width: 108.82px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark-green) !important;
+    color: var(--cream) !important;
+    border: 2px solid var(--dark-green) !important;
+    border-radius: 0 !important;
+    text-decoration: none !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.1em !important;
+    transition: all 0.3s ease;
+    padding: 0 !important;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Our Story Page Styles */
+.sticky-title {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 100;
+    transition: opacity 0.6s ease;
+}
+
+.sticky-title.fade-out {
+    opacity: 0;
+}
+
+
+.sticky-title::after,
+.sticky-title::before {
+    display: none !important;
+    content: none !important;
+}
+
+.sticky-title .names {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: var(--dark-green);
+    margin-bottom: 5px;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+.sticky-title h1 {
+    font-size: 3.5rem;
+    color: var(--dark-green);
+    font-weight: 300;
+    letter-spacing: 4px;
+    margin: 0;
+    opacity: 1;
+    transform: translateY(0);
+    text-decoration: none !important;
+    border: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    position: relative;
+}
+
+.sticky-title h1::after,
+.sticky-title h1::before {
+    display: none !important;
+    content: none !important;
+}
+
+.sticky-title,
+.sticky-title *,
+.sticky-title h1,
+.sticky-title .names {
+    text-decoration: none !important;
+    border: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    text-shadow: none !important;
+    background-image: none !important;
+    background: transparent !important;
+}
+
+.sticky-title *::after,
+.sticky-title *::before {
+    display: none !important;
+    content: none !important;
+    border: none !important;
+    background: none !important;
+}
+
+/* Photo Story Section */
+.photo-story {
+    position: relative;
+    min-height: 1400px;
+    background-color: var(--cream);
+    padding: 120px 0px 80px 0px;
+    overflow: hidden;
+}
+
+.photo-item {
+    position: absolute;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.photo-item:hover {
+    transform: scale(1.03) rotate(0.5deg);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.photo-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Story Text Section */
+.story-text-section {
+    background-color: var(--cream);
+    padding: 0px 0 100px 0;
+    text-align: left;
+    position: relative;
+    z-index: 0;
+}
+
+.story-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.story-content p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+.rsvp-call {
+    margin-top: 50px;
+    padding-top: 35px;
+    border-top: 1px solid rgba(66, 84, 64, 0.15);
+    text-align: center;
+}
+
+.rsvp-call p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: var(--dark-green);
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+.rsvp-call .rsvp-button {
+    color: var(--cream) !important;
+    background: var(--dark-green) !important;
+    border: 2px solid var(--dark-green) !important;
+    padding: 0.7em 1.8em !important;
+    font-size: 1rem !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    letter-spacing: 0.1em !important;
+    transition: all 0.3s ease;
+    box-shadow: none !important;
+    text-transform: uppercase;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.rsvp-call .rsvp-button:hover {
+    background: transparent !important;
+    color: var(--dark-green) !important;
+    text-decoration: none !important;
+    transform: translateY(-2px);
+}
+
+
+
+/* Our Story Section (for main page) */
+/* Main page our story section */
 .our-story {
     background-color: var(--cream);
     padding: 80px 0;
@@ -669,10 +1001,9 @@ a:hover {
     font-size: 6rem;
     color: var(--dark-green);
     margin-bottom: 50px;
-    font-family: 'Pinyon Script', cursive;
 }
 
-.story-content {
+.our-story .story-content {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
@@ -683,7 +1014,6 @@ a:hover {
     font-size: 1.5rem;
     line-height: 1.7;
     color: var(--dark-green);
-    font-family: 'Cormorant Garamond', serif;
 }
 
 /* Other Details Section */
@@ -698,7 +1028,6 @@ a:hover {
     font-size: 5rem;
     color: var(--dark-green);
     margin-bottom: 50px;
-    font-family: 'Pinyon Script', cursive;
     margin-right: 50px;
 }
 
@@ -723,7 +1052,6 @@ a:hover {
     margin-bottom: 15px;
     letter-spacing: 1px;
     font-weight: bold;
-    font-family: 'Cormorant Garamond', serif;
     text-transform: uppercase;
     text-align: right;
 }
@@ -732,7 +1060,6 @@ a:hover {
     text-align: right;
     font-size: 1.2rem;
     line-height: 1.5;
-    font-family: 'Cormorant Garamond', serif;
 }
 
 /* Getting to the Venue Section */
@@ -752,10 +1079,8 @@ a:hover {
     font-size: 3.8rem;
     margin-bottom: 50px;
     color: var(--dark-green);
-    font-family: 'Cormorant Garamond', serif;
     text-transform: uppercase;
     letter-spacing: 3px;
-    text-shadow: none;
     position: relative;
     display: inline-block;
     padding-bottom: 15px;
@@ -816,7 +1141,6 @@ a:hover {
     color: var(--dark-green);
     display: flex;
     align-items: center;
-    font-family: 'Cormorant Garamond', serif;
 }
 
 .accommodation h3::before {
@@ -897,7 +1221,6 @@ a:hover {
     margin-bottom: 40px;
     position: relative;
     z-index: 1;
-    font-family: 'Pinyon Script', cursive;
 }
 
 .gifts p {
@@ -906,7 +1229,6 @@ a:hover {
     line-height: 1.7;
     position: relative;
     z-index: 1;
-    font-family: 'Cormorant Garamond', serif;
 }
 
 .gifts .btn {
@@ -942,367 +1264,26 @@ footer .container {
     min-height: 70px;
 }
 
-footer p {
-    margin-bottom: 0;
-    line-height: 1;
-    font-size: 0.9rem;
-    font-family: 'Cormorant Garamond', serif;
-    color: var(--cream);
-    opacity: 1;
+.rsvp-link a::after {
+    display: none !important;
 }
 
-footer .signature {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    margin-top: 20px;
-    margin-bottom: 8px;
-    color: var(--cream);
-    opacity: 1;
-}
-
-footer .footer-date {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 400;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--cream);
-    margin-bottom: 12px;
-    margin-top: 0;
-    opacity: 1;
-}
-
-.heart-link {
-    margin-top: 0;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 24px;
-}
-
-.heart-svg {
-    fill: none;
-    stroke: var(--cream);
-    stroke-width: 2;
-    width: 18px;
-    height: 18px;
-    display: block;
-    margin: 0 auto;
-    filter: none;
-    transition: stroke 0.3s;
-}
-
-.heart-video:hover .heart-svg {
-    stroke: #E8B4B8;
-}
-
-.confetti-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-    overflow: hidden;
-}
-
-.confetti {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: #ff0000;
-    opacity: 1;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    z-index: 10000;
-    will-change: transform, opacity;
-}
-
-/* Responsive Styles */
-@media (max-width: 1024px) {
-    .hero h1 {
-        font-size: 5.5rem;
-    }
-
-    .hero .and {
-        font-size: 8rem;
-        margin: -10px 0;
-    }
-
-    .date-venue-content h2 {
-        font-size: 6rem;
-    }
-
-    .date-venue-content h3 {
-        font-size: 4rem;
-    }
-
-    .special-day h2, .gifts h2 {
-        font-size: 5rem;
-    }
-
-    .timeline-container {
-        gap: 20px;
-    }
-
-    .timeline-item {
-        width: 180px;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 4rem;
-    }
-
-    .hero .and {
-        font-size: 6rem;
-        margin: -5px 0;
-    }
-
-    .hero .subtitle {
-        font-size: 1.4rem;
-        letter-spacing: 6px;
-    }
-
-    .date-venue-container {
-        flex-direction: column;
-    }
-
-    .photo-frame-wrapper, .date-venue-content {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .date-venue-content {
-        text-align: center;
-        margin-top: 40px;
-    }
-
-    .date-venue-content h2 {
-        font-size: 4rem;
-    }
-
-    .date-venue-content h3 {
-        font-size: 3rem;
-    }
-
-    .date-venue-content h4 {
-        font-size: 2rem;
-    }
-
-    .photo-frame {
-        max-width: 350px;
-        margin: 0 auto;
-    }
-
-    .special-day {
-        padding: 80px 20px;
-        background-attachment: scroll;
-    }
-
-    .special-day-content {
-        padding: 30px 20px;
-    }
-
-    .special-day h2 {
-        font-size: 3.8rem;
-    }
-
-    .special-day h2, .gifts h2, .where-to-stay h2, .rsvp h2 {
-        font-size: 4rem;
-    }
-
-    .special-day p, .gifts p, .rsvp p {
-        font-size: 1.2rem;
-    }
-
-    .rsvp-content-wrapper {
-        flex-direction: column;
-    }
-
-    .rsvp-sketch {
-        margin-right: 0;
-        margin-top: 30px;
-    }
-
-    .rsvp-sketch img {
-        max-width: 300px;
-    }
-
-    .rsvp-button {
-        padding: 12px 30px;
-        font-size: 1rem;
-    }
-
-    .timeline-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .timeline-item {
-        margin: 20px 0;
-        width: 220px;
-    }
-
-    .details-grid, .accommodations {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        margin-right: 20px;
-        width: 90%;
-        grid-template-areas:
-            "dress"
-            "plus"
-            "weather"
-            "gifts"
-            "food"
-            "drinks"
-            "photography";
-    }
-
-    .other-details h2 {
-        margin-right: 20px;
-    }
-
-    .detail-item h3, .detail-item p {
-        text-align: right;
-    }
-
-    .gifts-content {
-        padding: 40px;
-    }
-
-    .vertical-lines {
-        width: 200px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 2.8rem;
-    }
-
-    .hero .and {
-        font-size: 4rem;
-        margin: 0;
-    }
-
-    .hero .subtitle {
-        font-size: 1.2rem;
-        letter-spacing: 4px;
-    }
-
-    section {
-        padding: 40px 20px;
-    }
-
-    .photo-frame-wrapper {
-        width: 100%;
-        padding: 10px;
-    }
-
-    .photo-frame {
-        max-width: 280px;
-    }
-
-    .date-venue-content {
-        width: 100%;
-    }
-
-    .date-venue-content h2 {
-        font-size: 3rem;
-    }
-
-    .date-venue-content h3 {
-        font-size: 2rem;
-    }
-
-    .date-venue-content h4 {
-        font-size: 1.5rem;
-    }
-
-    .special-day {
-        padding: 60px 15px;
-    }
-
-    .special-day-content {
-        padding: 25px 15px;
-    }
-
-    .special-day h2 {
-        font-size: 3rem;
-        margin-bottom: 30px;
-    }
-
-    .special-day p {
-        font-size: 1.1rem;
-        line-height: 1.6;
-    }
-
-    .special-day h2, .gifts h2, .where-to-stay h2, .rsvp h2 {
-        font-size: 3rem;
-    }
-
-    .special-day p, .gifts p, .rsvp p {
-        font-size: 1.1rem;
-        line-height: 1.5;
-    }
-
-    .rsvp-button {
-        padding: 10px 25px;
-        font-size: 0.9rem;
-        margin-top: 20px;
-    }
-
-    .timeline-icon {
-        width: 100px;
-        height: 100px;
-    }
-
-    .timeline-icon i {
-        font-size: 3rem;
-    }
-
-    .gifts-content {
-        padding: 30px 20px;
-    }
-
-    .gifts-content::before {
-        top: 10px;
-        left: 10px;
-        width: calc(100% - 20px);
-        height: calc(100% - 20px);
-    }
-
-    .vertical-lines {
-        width: 150px;
-        opacity: 0.1;
-    }
-}
-
-.pinyon-script {
-    font-family: 'Pinyon Script', cursive;
-    font-size: 2.2rem;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    color: var(--dark-green);
-    margin-right: 40px;
+.nav-hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.3s;
 }
 
 .venue-link {
-    color: var(--dark-green);
-    text-decoration: none;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 4rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    transition: transform 0.25s cubic-bezier(.4,0,.2,1), color 0.25s;
-    display: inline-block;
-    transform: none;
     position: relative;
+    display: inline-block;
+    color: var(--dark-green);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    transition: color 0.2s, transform 0.2s, font-size 0.2s, font-weight 0.2s, letter-spacing 0.2s, text-transform 0.2s;
 }
 
 .venue-link::after {
@@ -1321,15 +1302,20 @@ footer .footer-date {
     transition: opacity 0.2s, transform 0.2s;
 }
 
+.venue-link:hover,
+.venue-link:focus {
+    color: #a25566 !important;
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transform: scale(1.08) rotate(-2deg);
+    text-decoration: none;
+}
+
 .venue-link:hover::after,
 .venue-link:focus::after {
     opacity: 1;
     transform: translateY(-50%) translateX(0);
-}
-
-.venue-link:hover,
-.venue-link:focus {
-    transform: scale(1.08) rotate(-2deg);
-    color: #a25566;
-    text-decoration: none;
 }

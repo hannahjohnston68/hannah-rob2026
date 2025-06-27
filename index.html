@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hannah & Rob - Wedding</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="goudy-font.css">
+    <link rel="stylesheet" href="seasons-preview.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
@@ -14,23 +16,27 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="main-nav">
-        <div class="nav-container">
-            <div class="nav-links">
-                <a href="#" class="nav-link">Home</a>
-                <a href="#the-day" class="nav-link">The Day</a>
-                <a href="#other-details" class="nav-link">Details</a>
-                <a href="#rsvp" class="nav-link">RSVP</a>
-            </div>
+        <!-- Home icon on the left -->
+        <a href="index.html" class="nav-link home-icon">
+            <img src="H (2).png" alt="Home" class="home-icon-img">
+        </a>
+        <!-- Center navigation links -->
+        <div class="nav-links">
+            <a href="our-story.html" class="nav-link">Our Story</a>
+            <a href="travel.html" class="nav-link">Travel & Stay</a>
+            <a href="faqs.html" class="nav-link">FAQs</a>
+        </div>
+        <!-- RSVP link on the right -->
+        <div class="rsvp-link">
+            <a href="#rsvp" class="nav-link">RSVP</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>HANNAH</h1>
-            <h2 class="and" style="font-family: 'Playfair Display', cursive; font-size: 6rem; margin: -30px;">&</h2>
-            <h1>ROBERT</h1>
-            <p class="subtitle">ARE GETTING MARRIED!</p>
+            <h1> 09.12.2026</h1>
+            <h1>HANNAH & ROB</h1>
         </div>
     </section>
 
@@ -39,9 +45,7 @@
         <div class="container">
             <div class="date-venue-container">
                 <div class="photo-frame-wrapper">
-                    <div class="photo-frame">
-                        <img src="images/hannahrob1.png" alt="Hannah and Rob">
-                    </div>
+                    <img src="images/hannahrob1.png" alt="Hannah and Rob">
                 </div>
                 <div class="date-venue-content">
                     <h2 style="font-family: 'Pinyon Script'">September 12th</h2>
@@ -118,9 +122,8 @@
             <div class="rsvp-content-wrapper">
                 <div class="rsvp-container">
                 <h2>RSVP</h2>
-                <p>We'd be honoured to have you join us for our special day!<br>
-                    Please let us know whether you'll be able to attend
-                    by <strong>July 12th</strong> so we can plan accordingly. </p>
+                <p>Please let us know if you will be able to join us in celebrating. Kindly RSVP by July 12th, 2026.
+                </p>
                 <a href="https://withjoy.com/hannah-and-rob-sep-26/rsvp" target="_blank" class="rsvp-button">RSVP NOW</a>
                 </div>
                 <div class="rsvp-sketch">
@@ -131,70 +134,10 @@
         </div>
     </section>
 
-    <!-- Other Details Section -->
-    <section id="other-details" class="other-details">
-        <div class="container">
-            <h2>Other Details</h2>
-            <div class="details-grid">
-                <div class="detail-item" style="grid-area: dress;">
-                    <h3>DRESS CODE</h3>
-                    <p> We would love to see our family and friends get dressed up with us for our big day! Please dress in cocktail or formal attire.
-                    </p>
-                </div>
-                <div class="detail-item" style="grid-area: plus;">
-                    <h3>PLUS-ONES</h3>
-<p>We have addressed the invitations to the people we would love to come. If you receive a plus one, they will appear under your name when you RSVP. Please ensure that you RSVP for yourself and your guests. Due to space, we are only able to accommodate those guests formally invited.
-</p>                </div>
-                <div class="detail-item" style="grid-area: weather;">
-                    <h3>WEATHER</h3>
-                    <p>Our ceremony and cocktail hour will be outdoors on the patio, while the reception will take place indoors. Guests will walk on cobblestones to take their seats.
-
-                        In case of inclement weather, we have a covered backup location on the property.</p>
-                </div>
-                <div class="detail-item" style="grid-area: gifts;">
-                    <h3>GIFTS</h3>
-                    <p>Your presence at our wedding is the greatest gift we could ask for! If you would like to honor us with a gift, a contribution towards our honeymoon would be greatly appreciated. A wedding card box will be at our reception.
-                    </p>
-                </div>
-                <div class="detail-item" style="grid-area: food;">
-                    <h3>FOOD</h3>
-                    <p> We'll be serving hors d'oeuvres at cocktail hour followed by a sit-down brunch with a choice of entree. There will be gluten-free/nut-free/vegan options available.
-                        Our cocktail hour appetizers will also all be clearly marked if they are allergy friendly. If you have additional restrictions that go beyond what we've listed here, please let us know in the designated section of your digital RSVP. We want you to feel comfortable and well fed!
-                    </p>
-                </div>
-                <div class="detail-item" style="grid-area: photography;">
-                    <h3>PHOTOGRAPHY</h3>
-<p>You are welcome to take photos, but please refrain from having your phone out during the ceremony as it is an 'unplugged ceremony.' We have hired professional photographers to capture this moment. However, during the reception, please take as MANY photos and videos as you'd like! We will create a Google Drive folder afterward for our friends and family to upload and share their experience. </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Getting to the Venue Section -->
-    <section class="where-to-stay">
-        <div class="container">
-            <h2>Getting To The Venue</h2>
-            <div class="accommodations">
-                <div class="accommodation">
-                    <h3>Public Transit</h3>
-                    <p>Via TTC Subway and Streetcar:</p>
-                    <p>From Union Station (Line 1)<br>
-                    Take the 504 King streetcar eastbound (toward Broadview Station). Exit at Trinity Street stop and walk south into the Distillery District. Archeo is located centrally within the district.</p>
-                    <p>From Castle Frank Station (Line 2)<br>
-                    Take the 65 Parliament bus southbound. Exit at Front St East stop and walk one block south to the Distillery District entrance. Archeo will be directly ahead inside.</p>
-                </div>
-                <div class="accommodation">
-                    <h3>Driving & Parking</h3>
-                    <p>Parking Options:</p>
-                    <p>Distillery District Green P lot (main parking) with entrances from Parliament Street and Cherry Street</p>
-                    <p>Additional parking at 33 Mill Street</p>
-                    <p>373 Front Street East parking lot</p>                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
+    
+   <!-- Footer -->
+    <!--
+        <footer>
         <div class="container">
             <p class="signature">Hannah & Rob</p>
             <p>September 12, 2026</p>
@@ -205,7 +148,7 @@
             </span></a></p>
         </div>
     </footer>
-
+-->
     <script src="script.js"></script>
     <script src="confetti.js"></script>
 </body>

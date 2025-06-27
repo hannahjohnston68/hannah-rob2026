@@ -47,13 +47,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Handle navigation bar scroll effect
+let lastScrollY = window.scrollY;
 window.addEventListener('scroll', function() {
     const nav = document.querySelector('.main-nav');
-    if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
+    if (window.scrollY > 10) {
+        nav.classList.add('nav-hidden');
     } else {
-        nav.classList.remove('scrolled');
+        nav.classList.remove('nav-hidden');
     }
+    lastScrollY = window.scrollY;
 });
 
 // Handle mobile menu
@@ -61,18 +63,20 @@ const mobileMenuButton = document.querySelector('.mobile-menu-button');
 const mobileMenu = document.querySelector('.mobile-menu');
 const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-mobileMenuButton.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-});
-
-// Close mobile menu when clicking a link
-mobileNavLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        document.body.style.overflow = '';
+if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
     });
-});
+
+    // Close mobile menu when clicking a link
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
+}
 
 // Handle active navigation links
 const navLinks = document.querySelectorAll('.nav-link');
@@ -98,3 +102,19 @@ function setActiveLink() {
 
 window.addEventListener('scroll', setActiveLink);
 window.addEventListener('load', setActiveLink);
+
+// Fade out title for Our Story page
+document.addEventListener('DOMContentLoaded', function() {
+    const stickyTitle = document.querySelector('.sticky-title');
+    
+    if (stickyTitle) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 800) {
+                stickyTitle.classList.add('fade-out');
+            } else {
+                stickyTitle.classList.remove('fade-out');
+            }
+        });
+    }
+});
+
